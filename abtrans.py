@@ -34,5 +34,3 @@ def trans(text,toAlBhed=True):
             if word.lower() in specialvocab:out.append(word)
             else:out.append("".join([eng[alb.index(char)] if char in alb else char for char in word]))
         return " ".join(out)
-
-while True:print(trans(input()))
