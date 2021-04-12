@@ -4,32 +4,38 @@
 # Written by Katsumi Kougen - All rights reserved.
 # Final Fantasy X - (C) 2001-2021 Square Enix.
 
-def trans(text,toAlBhed=True):
-    alb="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    eng="epstiwknuvgclrybxhmdofzqajEPSTIWKNUVGCLRYBXHMDOFZQAJ"
-    specialvocab=(
-        "fiend","magic","aeon","airship","yevon","sin","summoner","machina","fayth","blitz","blitzball", # In-game terminology
-        "maester","guardian","spiran","summoners","maesters","fiends","airships","machinas","fayths",
+from typing import Optional
+
+
+def trans(text: str, toAlBhed: Optional[bool] = True) -> str:
+    alb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    eng = "epstiwknuvgclrybxhmdofzqajEPSTIWKNUVGCLRYBXHMDOFZQAJ"
+    specialvocab = (
+        # In-game terminology
+        "fiend", "magic", "aeon", "airship", "yevon", "sin", "summoner", "machina", "fayth", "blitz", "blitzball",
+        "maester", "guardian", "spiran", "summoners", "maesters", "fiends", "airships", "machinas", "fayths",
         "guardians",
-        "spira","besaid","kilika","luca","gagazet","bikanel","zanarkand",                                # Location names
-        "al-bhed","hypello","cactuar","ronso","guado","moogle","chocobo","chocobos",                     # Race names
-        "tidus","yuna","auron","kimahri","wakka","lulu","rikku","paine",                                 # Player characters
-        "seymour","braska","dona","belgemine","gandof","ginnem","isaaru","ohalland","yocun","zuke",      # Non-player characters
-        "yunalesca","barthello","jecht","maroda","pacce","zaon","chappu","clasko","elma","lucil",
-        "luzzu","gatta","mi'ihen","jyscal","kelk","mika","wen-kinoc","cid","rin","keyakku","biran",
-        "yenke","calli","maechen","omega","shelinda",
-        "python","bisqwit","katsumi","shulk","reyn","fiora","dunban","melia","sharla","riki","github",   # Miscellaneous
+        # Location names
+        "spira", "besaid", "kilika", "luca", "gagazet", "bikanel", "zanarkand",
+        # Race names
+        "al-bhed", "hypello", "cactuar", "ronso", "guado", "moogle", "chocobo", "chocobos",
+        # Player characters
+        "tidus", "yuna", "auron", "kimahri", "wakka", "lulu", "rikku", "paine",
+        # Non-player characters
+        "seymour", "braska", "dona", "belgemine", "gandof", "ginnem", "isaaru", "ohalland", "yocun", "zuke",
+        "yunalesca", "barthello", "jecht", "maroda", "pacce", "zaon", "chappu", "clasko", "elma", "lucil",
+        "luzzu", "gatta", "mi'ihen", "jyscal", "kelk", "mika", "wen-kinoc", "cid", "rin", "keyakku", "biran",
+        "yenke", "calli", "maechen", "omega", "shelinda",
+        "python", "bisqwit", "katsumi", "shulk", "reyn", "fiora", "dunban", "melia", "sharla", "riki", "github",   # Miscellaneous
     )
-    out=[]
+    out = []
     if toAlBhed:
-        wordlist=text.split(" ")
-        for word in wordlist:
-            if word.lower() in specialvocab:out.append(word)
-            else:out.append("".join([alb[eng.index(char)] if char in eng else char for char in word]))
+        wordlist = text.split(" ")
+        out = [word if word.lower() in specialvocab else "".join(
+            [alb[eng.index(char)] if char in eng else char for char in word]) for word in wordlist]
         return " ".join(out)
     else:
-        wordlist=text.split(" ")
-        for word in wordlist:
-            if word.lower() in specialvocab:out.append(word)
-            else:out.append("".join([eng[alb.index(char)] if char in alb else char for char in word]))
+        wordlist = text.split(" ")
+        out = [word if word.lower() in specialvocab else "".join([eng[alb.index(
+            char)] if char in alb else char for char in word]) for word in wordlist]
         return " ".join(out)
