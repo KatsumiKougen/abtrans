@@ -24,4 +24,6 @@ import abtrans as abt
 print(abt.trans("Bnacahdat po Katsumi - pa cyva yht ryja y hela tyo! :3",False))
 ```
 
+Credit to [DudeBro249](https://github.com/DudeBro249) for some refactoring here and there.
+
 > Final Fantasy X, Final Fantasy X-2 - ©2001-2021 Square Enix. All rights reserved.
