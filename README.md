@@ -19,7 +19,7 @@ Furthermore, it has a special feature that detects special vocabulary *(loanword
 * ~~```Fill me with * fayth``` --> ```Vemm sa fedr * fayth``` :heavy_check_mark:~~
 ~~Don't worry, I'll fix it later.~~
 
-**26 Feb. 2022 update:** fixed it.
+**26 Feb. 2022 update:** I finally fixed it.
 
 The source code is free for all to download. You can get it by just downloading from the website. If you're using Linux, you can open the terminal and type ```git clone https://github.com/KatsumiKougen/abtrans```.
 
